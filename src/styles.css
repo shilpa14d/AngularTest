@@ -1,0 +1,19 @@
+/* Add application styles & imports to this file! */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.mat-dialog-content {
+  height: 600px;
+}
+.mat-tab-body-wrapper {
+  height: 300px;
+  overflow-x: scroll;
+}
+.mat-dialog-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+.mat-dialog-title,
+.mat-grid-tile,
+.mat-tab-list,
+.mat-tab-label.mat-tab-disabled {
+  color: deepskyblue;
+}

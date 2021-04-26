@@ -1,0 +1,40 @@
+<button (click)="getYears()"> Select vehicle </button>
+<ng-template #selectionModal>
+  <h1 mat-dialog-title>START OVER</h1>
+  <div>
+    <b>Vehicle:</b> {{this.selectedYear}} {{this.selectedMake}} {{this.selectedModel}} {{this.selectedStyle}}
+  </div>
+  <div mat-dialog-content>
+    <div>{{modalContent[initialMessage]}}</div>
+    <mat-tab-group #fitmentTab *ngIf='showTabs'>
+      <mat-tab label="Years" [disabled]='true'>
+        <mat-grid-list cols="5" rowHeight="2:1">
+          <mat-grid-tile *ngFor='let year of (this.years$ | async)?.year' (click)='getMakes(year)'>
+            <div class='grid-selection'>{{year}}</div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-tab>
+      <mat-tab label="Make" [disabled]='true'>
+        <mat-grid-list cols="5" rowHeight="2:1">
+          <mat-grid-tile *ngFor='let make of (this.makes$ | async)?.make' (click)='getModels(make)'>
+            <div class='grid-selection'>{{make}}</div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-tab>
+      <mat-tab label="Models" [disabled]='true'>
+        <mat-grid-list cols="5" rowHeight="2:1">
+          <mat-grid-tile *ngFor='let model of (this.models$ | async)?.model' (click)='getStyles(model)'>
+            <div class='grid-selection'>{{model}}</div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-tab>
+      <mat-tab label="Style" [disabled]='true'>
+        <mat-grid-list cols="5" rowHeight="2:1">
+          <mat-grid-tile *ngFor='let style of (this.styles$ | async)?.trim' (click)='selectStyle(style)'>
+            <div class='grid-selection'>{{style}}</div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</ng-template>

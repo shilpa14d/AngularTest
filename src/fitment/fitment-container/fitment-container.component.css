@@ -1,0 +1,6 @@
+.grid-selection {
+  cursor: pointer;
+}
+.grid-selection:hover {
+  color: powderblue;
+}
